@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package termoo;
+
+// Mensagem para enviar um palpite
+message PalpiteRequest {
+  string palavra = 1;   // palavra chutada
+  string jogo_id = 2;   // id do jogo para controlar a sessão
+}
+
+// Resposta para o palpite
+message PalpiteResponse {
+  repeated string resultados = 1;  // array com resultados, ex: ["correto", "posicao_errada", "errado"]
+  bool venceu = 2;                 // se o jogador venceu com esse palpite
+  bool terminou = 3;               // se o jogo terminou (venceu ou perdeu)
+  string mensagem = 4;             // mensagem de status
+}
+
+// Iniciar um novo jogo
+message NovoJogoRequest {}
+
+message NovoJogoResponse {
+  string jogo_id = 1;             // id da sessão do jogo
+  int32 tentativas_maximas = 2;   // número máximo de tentativas
+  int32 tamanho_palavra = 3;      // tamanho da palavra alvo
+}
+
+// Serviço gRPC
+service TermooService {
+  rpc NovoJogo(NovoJogoRequest) returns (NovoJogoResponse);
+  rpc EnviarPalpite(PalpiteRequest) returns (PalpiteResponse);
+}
