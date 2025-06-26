@@ -66,9 +66,9 @@ class TermooServicer(termoo_pb2_grpc.TermooServiceServicer):
         jogo["terminou"] = terminou
         
         if venceu:
-            mensagem = "Você venceu!"
+            mensagem = f"Você venceu! com um total de {jogo["tentativas"] } tentativas."
         elif terminou:
-            mensagem = f"Fim de jogo!"
+            mensagem = f"Fim de jogo! a resposta era {alvo}."
         else:
             mensagem = "Tente novamente!"
 
