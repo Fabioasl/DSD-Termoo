@@ -30,7 +30,7 @@ async function main() {
     const jogoId = resposta.jogo_id;
     const tentativasMaximas = resposta.tentativas_maximas;
     const tamanhoPalavra = resposta.tamanho_palavra;
-
+    console.log("para começar digite qualquer palavra com 5 letras.")
     console.log(`Tamanho da palavra: ${tamanhoPalavra}`);
     console.log(`Tentativas máximas: ${tentativasMaximas}`);
 
