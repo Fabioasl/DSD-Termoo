@@ -20,6 +20,7 @@ Para que a aplicação funcione corretamente, instale os seguintes pacotes:
 ```bash
 pip install grpcio
 pip install grpcio-tools
+npm install
 npm install @grpc/grpc-js @grpc/proto-loader grpc-tools
 ```
 
