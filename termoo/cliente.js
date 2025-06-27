@@ -19,7 +19,7 @@ const definicaoPacote = protoLoader.loadSync(
 const termoProto = grpc.loadPackageDefinition(definicaoPacote).termoo;
 
 async function main() {
-  const cliente = new termoProto.TermooService('localhost:50051', grpc.credentials.createInsecure());
+  const cliente = new termoProto.TermooService('10.25.2.165:50051', grpc.credentials.createInsecure());
 
   // Promisificar os métodos
   const novoJogo = util.promisify(cliente.NovoJogo.bind(cliente));
